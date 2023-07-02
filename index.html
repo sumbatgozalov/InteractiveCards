@@ -3,12 +3,123 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./index.css" />
     <title>Interactive card details form</title>
   </head>
   <body>
-    0000 0000 0000 0000 Jane Appleseed 00/00 000 Cardholder Name e.g. Jane
-    Appleseed Card Number e.g. 1234 5678 9123 0000 Exp. Date (MM/YY) MM YY CVC
-    e.g. 123 Confirm
+    <main>
+      <section class="left">
+        <div class="up">
+          <div class="card-front">
+            <img class="icon" src="./images/card-logo.svg"
+            />
+            <span class="frontspan" id="mirrorSpanNum"
+              >0000 0000 0000 0000</span
+            >
+            <p class="pspan" class="pname">
+              <span id="mirrorSpanName">JANE APPLESEED</span>
+              <span class="MMYY">
+                <span id="mirrorSpanmm">00</span>
+                <span>/</span>
+                <span id="mirrorSpanyy">00</span></span
+              >
+            </p>
+          </div>
+        </div>
+        <div class="down">
+          <div class="card-back">
+            <span class="mirSpan" id="mirrorSpancvc">000 </span>
+          </div>
+        </div>
+      </section>
+      <section class="right">
+        <form onsubmit="func()" class="form">
+          <div class="element">
+            <label for="card-name">CARDHOLDER NAME</label>
+            <input
+              id="card-name"
+              class="input"
+              type="text"
+              placeholder="e.g. Jane
+          Appleseed"
+              oninput="mirrorText()"
+            />
+          </div>
+
+          <div class="element">
+            <label for="">CARD NUMBER</label>
+            <input
+              id="number"
+              class="input"
+              type="text"
+              placeholder="e.g. 1234 5678 9123 0000"
+              oninput="mirrorNum()"
+              maxlength="16"
+              minlength="16"
+            />
+          </div>
+          <p id="numerror" class="errornum" style="display: none"></p>
+          <div class="element">
+            <span class="myc">
+              <label class="mm" for="mm">EXP. DATE</label>
+              <label class="yy" for="yy">(MM/YY)</label>
+              <label class="cvc" for="cvc">CVC</label></span
+            >
+            <span>
+              <input
+                oninput="mirrormm()"
+                class="input"
+                id="mm"
+                type="text"
+                placeholder="MM"
+                maxlength="2"
+              />
+              <input
+                oninput="mirroryy()"
+                class="input"
+                id="yy"
+                type="text"
+                placeholder="YY"
+                maxlength="2"
+              />
+              <input
+                oninput="mirrorcvc()"
+                class="input"
+                id="cvc"
+                type="text"
+                placeholder="e.g.123"
+                maxlength="3"
+                minlength="3"
+              />
+            </span>
+          </div>
+          <span class="errorspan">
+            <span
+              id="errM"
+              class="eMM"
+              style="color: red; display: none"
+            ></span>
+            <span
+              id="errY"
+              class="eYY"
+              style="color: red; display: none"
+            ></span>
+            <span id="errCVC" class="eCVC" style="color: red; display: none"
+              >000</span
+            >
+          </span>
+          <button
+            id="confirm"
+            class="confirm"
+            onclick="validateInputs()"
+            href="#"
+          >
+            Confirm
+          </button>
+        </form>
+      </section>
+    </main>
+
+    <script src="./index.js"></script>
   </body>
 </html>
