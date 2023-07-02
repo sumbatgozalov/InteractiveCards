@@ -5,6 +5,7 @@ function func(e){
 
 
 
+
 function mirrorText() {
     var inputValue = document.getElementById("card-name").value;
     document.getElementById("mirrorSpanName").textContent = inputValue;
@@ -95,10 +96,39 @@ function mirrorText() {
     errCVC.style.display = "none";
     cvc.style.border = "1px solid black"
   }
+  // var isValid = validateInputs()
   if (isValid) {
-    // Proceed with form submission or further actions
-    alert("Form submitted successfully!");
-  }
-  }
+  //   var successpopup = document.getElementById("successpopup");
+  // successpopup.style.display = "block";
+//     var popup = document.getElementById("confirm")
+  
+// function openPopup(){
+//   popup.classList.add("open-popup")
+// }
+// function closePopup(){
+//   popup.classList.remove("open-popup")
+}
 
+return(isValid)
+
+    
+//   }
+
+  }
+  function submitForm(event) {
+    event.preventDefault(); // Prevent form submission
+  
+    var isValid = validateInputs();
+  
+    if (isValid) {
+      // Proceed with form submission
+      var successpopup = document.getElementById("successpop");
+      successpop.style.visibility = "visible";
+    }
+  }
+  
+  // function closePopup(popupId) {
+  //   var popup = document.getElementById(popupId);
+  //   popup.style.display = "none";
+  
  

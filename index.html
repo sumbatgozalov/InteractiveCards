@@ -108,17 +108,24 @@
               >000</span
             >
           </span>
-          <div class="container">
+        
           <button
             id="confirm"
             class="confirm"
-            onclick="validateInputs()"
+            onclick="validateInputs()" 
             type="submit"
+            onsubmit=""
           >
             Confirm
           </button>
-        </div>
+        
         </form>
+        <div id="successpop" class="container">
+          <img class="finishIcon" src="./images/icon-complete.svg" alt="">
+          <h1>Thank You!</h1>
+          <p class="plast">We've added your card details</p>
+          <button id="btn" class="continue" onclick="closePopup()">Continue</button>
+        </div>
       </section>
     </main>
 

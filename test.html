@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./test.css">
+</head>
+<body>
+  <form id="myForm" onsubmit="submitForm(event)">
+    <input type="text" id="nameInput">
+    <input type="email" id="emailInput">
+    <input type="text" id="ageInput">
+    <button type="submit">Submit</button>
+  </form>
+  
+  <div id="errorPopup" class="popup">
+    <div class="popup-content">
+      <h2>Error Message</h2>
+      <p id="popupText"></p>
+      <button onclick="closePopup('errorPopup')">Close</button>
+    </div>
+  </div>
+  
+  <div id="successPopup" class="popup">
+    <div class="popup-content">
+      <h2>Success Message</h2>
+      <p id="successText">Form submitted successfully!</p>
+      <button onclick="closePopup('successPopup')">Close</button>
+    </div>
+  </div>
+      <script>
+        
+        function validateInputs() {
+  var nameInput = document.getElementById("nameInput");
+  var emailInput = document.getElementById("emailInput");
+  var ageInput = document.getElementById("ageInput");
+
+  var errorPopup = document.getElementById("errorPopup");
+  var popupText = document.getElementById("popupText");
+
+  var isValid = true;
+
+  if (!nameInput.value) {
+    popupText.textContent = "Name cannot be blank.";
+    errorPopup.style.display = "block";
+    isValid = false;
+  } else if (!emailInput.value) {
+    popupText.textContent = "Email cannot be blank.";
+    errorPopup.style.display = "block";
+    isValid = false;
+  } else if (!/^\d+$/.test(ageInput.value)) {
+    popupText.textContent = "Please enter a valid age (numbers only).";
+    errorPopup.style.display = "block";
+    isValid = false;
+  }
+
+  return isValid;
+}
+
+function submitForm(event) {
+  event.preventDefault(); // Prevent form submission
+
+  var isValid = validateInputs();
+
+  if (isValid) {
+    // Proceed with form submission
+    var successPopup = document.getElementById("successPopup");
+    successPopup.style.display = "block";
+  }
+}
+
+function closePopup(popupId) {
+  var popup = document.getElementById(popupId);
+  popup.style.display = "none";
+}
+      </script>
+</body>
+</html>
